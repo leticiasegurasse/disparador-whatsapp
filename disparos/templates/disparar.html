@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Disparo de Mensagens</title>
+</head>
+<body>
+    <h2>Disparo de Mensagens</h2>
+    <form method="post" enctype="multipart/form-data">{% csrf_token %}
+        <textarea name="mensagem" placeholder="Digite sua mensagem aqui" required></textarea><br>
+        <input type="file" name="csv_file" required><br>
+        <label for="intervalo">Intervalo entre mensagens (segundos):</label>
+        <input type="number" name="intervalo" value="5" min="1"><br>
+        <button type="submit">Enviar Mensagens</button>
+    </form>
+</body>
+</html>
