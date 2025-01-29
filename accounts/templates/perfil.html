@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<section class="meu_perfil">
+    <h2>Meu Perfil</h2>
+
+    <!-- Mensagens de sucesso ou erro -->
+    {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <li class="{{ message.tags }}">{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    <!-- Formulário de edição -->
+    <form method="post" class="perfil-form">
+        {% csrf_token %}
+
+        <div class="form-group">
+            <label for="username">Nome de Usuário:</label>
+            {{ form.username }}
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email:</label>
+            {{ form.email }}
+        </div>
+
+        <div class="form-group">
+            <label for="setor">Setor:</label>
+            {{ form.setor }}
+        </div>
+
+        <div class="form-group">
+            <label for="api_key">API Key:</label>
+            {{ form.api_key }}
+        </div>
+
+        <div class="form-group">
+            <label for="instancia">Instância:</label>
+            {{ form.instancia }}
+        </div>
+
+        <button type="submit" class="btn-save">Salvar Alterações</button>
+    </form>
+</section>
+{% endblock %}

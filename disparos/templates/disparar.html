@@ -1,16 +1,47 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Disparo de Mensagens</title>
-</head>
-<body>
-    <h2>Disparo de Mensagens</h2>
-    <form method="post" enctype="multipart/form-data">{% csrf_token %}
-        <textarea name="mensagem" placeholder="Digite sua mensagem aqui" required></textarea><br>
-        <input type="file" name="csv_file" required><br>
-        <label for="intervalo">Intervalo entre mensagens (segundos):</label>
-        <input type="number" name="intervalo" value="5" min="1"><br>
-        <button type="submit">Enviar Mensagens</button>
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<section class="disparos">
+    <form method="post" enctype="multipart/form-data" class="disparos-form">
+        {% csrf_token %}
+
+        <h2>Disparo de Mensagens</h2>
+
+        {% if status %}
+            <div class="alert {{ status }}">
+                {{ message }}
+            </div>
+        {% endif %}
+
+        <div class="form-group">
+            <label for="mensagem">Mensagem:</label>
+            <textarea id="mensagem" name="mensagem" placeholder="Escreva sua mensagem aqui..." required></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="csv_file">Arquivo CSV:</label>
+            <input type="file" id="csv_file" name="csv_file" accept=".csv" required>
+        </div>
+
+        <fieldset class="form-group">
+            <legend>Intervalo de Envio:</legend>
+            <div>
+                <input type="radio" id="intervalo_0_5" name="intervalo_opcao" value="0-5" required>
+                <label for="intervalo_0_5">0 a 5 minutos</label>
+            </div>
+            <div>
+                <input type="radio" id="intervalo_5_15" name="intervalo_opcao" value="5-15">
+                <label for="intervalo_5_15">5 a 15 minutos</label>
+            </div>
+            <div>
+                <input type="radio" id="intervalo_15_25" name="intervalo_opcao" value="15-25">
+                <label for="intervalo_15_25">15 a 25 minutos</label>
+            </div>
+        </fieldset>
+
+        <button type="submit" class="btn-submit">Disparar Mensagens</button>
     </form>
-</body>
-</html>
+</section>
+    
+{% endblock %}

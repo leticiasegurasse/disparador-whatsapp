@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-8n2uoi--9)8ia_@%h+@i4i!q9rj#esc9mydpgc9g(goua-m__0
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['147.93.70.135', 'disparador.g2telecom.com.br', 'www.disparador.g2telecom.com.br']
+ALLOWED_HOSTS = ['147.93.70.135', 'disparador.g2telecom.com.br', 'www.disparador.g2telecom.com.br', '127.0.0.1']
 
 
 # Application definition

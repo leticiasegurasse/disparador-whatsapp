@@ -11,9 +11,36 @@
         {% block head %}{% endblock %}
     </head>
 <body>
-    
-    {% block content %}
-    {% endblock %}
+    <div class="container">
+        <!-- Menu lateral -->
+        <nav class="sidebar">
+            <div>
+                <div class="logo">
+                    <img src="{% static 'images/logo.png' %}" alt="Logo" />
+                </div>
+                <ul class="menu">
+                    <!-- <li><a href="{% url 'dashboard' %}">Dashboard</a></li> -->
+                    <!-- <li><a href="{% url 'meus_chats' %}">Meus Chats</a></li> -->
+                    <li><a href="{% url 'disparos' %}">Disparos</a></li>
+                    <li><a href="{% url 'historico_disparos' %}">Histórico de disparos</a></li>
+                    <!-- <li><a href="{% url 'financeiro' %}">Financeiro</a></li> -->
+                </ul>
+            </div>
+            <div class="footer-menu">
+                <ul>
+                    <!-- <li><a href="{% url 'ajuda' %}">Ajuda e Suporte</a></li> -->
+                    <li><a href="{% url 'meu_perfil' %}">Meu Perfil</a></li>
+                </ul>
+            </div>
+        </nav>
+        
+
+        <!-- Conteúdo principal -->
+        <main class="content">
+            {% block content %}
+            {% endblock %}
+        </main>
+    </div>
 
     <script src="{% static 'js/script.js' %}"></script>
 </body>
